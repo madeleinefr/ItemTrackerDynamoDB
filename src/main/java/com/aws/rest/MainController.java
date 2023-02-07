@@ -28,7 +28,7 @@ import java.util.stream.StreamSupport;
  *
  * @RestController annotation is a specialized version of the controller.
  * It already includes the @Controller and @ResponseBody annotations, so the implementation of the controller is simplified.
- * (e.g. you don't need to add @ResponseBody anymore). Every request handling method of th controller class automatically serializes return objects into HttpResponse
+ * (e.g. you don't need to add @ResponseBody anymore). Every request handling method of the controller class automatically serializes return objects into HttpResponse
  *
  * @RequestMapping annotation is used to map web requests onto specific handler classes and methods and make web resources addressable
  * The value parameter is used to specify the request URI path on controller class name
@@ -43,7 +43,7 @@ public class MainController {
 
     /**
      * @Autowired
-     *here we use the @Autowired annotation on a constructor
+     * here we use the @Autowired annotation on a constructor
      * the instance of DynamoDBService is injected by Spring as an argument to the MainController constructor
      */
     @Autowired
