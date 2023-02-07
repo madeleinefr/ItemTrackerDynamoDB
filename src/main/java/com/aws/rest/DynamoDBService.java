@@ -22,6 +22,13 @@ import software.amazon.awssdk.services.dynamodb.model.DynamoDbException;
 /*
  Before running this code example, create an Amazon DynamoDB table named Work with a primary key named id.
  */
+/**
+* @Component annotation tells Spring that the DynamoDBService class is a component
+ * tells Spring to add it into the Spring ApplicationContext, meaning it instantiates them
+ * and injects any specified dependencies into them
+ * In the Spring ApplicationContext all the instances of the objects(=beans) are put which
+ * have been identified by Spring to be managed and distributed automatically
+ */
 @Component
 public class DynamoDBService {
 
