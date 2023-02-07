@@ -9,25 +9,41 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.is;
+/**
+ * @SpringBootTest
+ * This annotation tells Spring Boot to look for a main configuration class(normally one with the @SpringBootApplication annotation) and use that to start a Spring application context
+ * We can specify that Spring Boot should start the server with a random port for testing by adding the following after the annotation: (webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+ * Specifying a random port is useful because like this we can avoid conflicts in test environments
+
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MainControllerTest {
 
     private final String url = "/api/items";
 
-    /*@Autowired
+    /**
+     * @Autowired is used here to inject the WebApplicationContext before the tests are run
      */
     @Autowired
     private WebApplicationContext webApplicationContext;
 
+    /**
+     * @BeforeEach can be used to specify what should be done before each test
+     */
     @BeforeEach
     void setUp(){
         RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
     }
+    /**
+     * @AfterEach can be used to specify what should be done before each test
+     */
     @AfterEach
     void cleanUp() {
         RestAssuredMockMvc.reset();
     }
-
+    /**
+     * @Test indicates to Spring that this is a test
+     */
     @Test
     void getItems() {
         RestAssuredMockMvc.given()
